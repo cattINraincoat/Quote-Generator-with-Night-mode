@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+/* Creating light and dark mode is basically the game of creating colors and their counterparts and storing them in a root for one theme and another
+class for another theme and then changing the classlist if the body therefore changing the theme
+and using toggle and contains to change icons and stuff */
+
+:root{
+    --colorDay1:#bbc6fa;
+    --colorDay2:rgba(0,0,0,0.15);
+    --colorDay3:#54178d;
+    --colorNight1:rgb(40, 35, 66);
+    --colorNight2: white;
+
+       
+}
+.dark-theme
+{
+    --colorDay1:rgb(40, 35, 66);
+    --colorNight1:white;
+    --colorNight2: #1a031a; 
+
+}
+
+.fa-solid{
+    color:var(--colorNight1);
+}
+.navbar-brand{
+    color:var(--colorNight1);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+    color:var(--colorNight1);
+    
+}
+body{
+    overflow: hidden;
+}
+header{
+    font-weight: 700;
+}
+#icon{
+    cursor: pointer;
+    border: none;
+
+
+}
+
+main{
+    background: var(--colorDay1);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quotebox{
+    background: var(--colorNight2);
+    text-align: center;
+    max-width: 700px;
+    max-height: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0px var(--colorDay2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.quotebox p{
+    font-size:2rem;
+    font-weight: 700;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid #8a8080;
+    width: 400px;
+}
+
+
+.quotebox blockquote{
+    font-size: 1.5rem;
+    min-height: 5rem;
+}
+/* Adding a quotation mark at the start and end of the note */
+.quotebox blockquote::before, .quotebox blockquote::after{
+
+    content:'"' ;
+}
+
+.quotebox span{
+
+    display: block;
+    width: 100%;
+    margin-top:1rem;
+    text-align: end;
+    margin-bottom: 1.5rem;
+}
+.quotebox span::before{
+    content:'-';
+}
+
+#qbtn
+{
+  background:var(--colorDay1);
+  color:var(--colorNight2);
+  border:2px solid;
+  padding: 1em;
+  border-radius: 5px;
+  transition:all 0.25s ease-out;
+  
+}
+#qbtn:hover
+{
+  border-color:var(--colorDay3);
+  color:var(--colorDay3);
+  box-shadow:0 0.5em 0.5em -0.4em var(--colorNight1);
+  transform: translateY(-0.25em);
+  cursor:pointer;
+}
+
+@media (max-width:760px)
+{
+    .quotebox{
+        width:400px ;
+    }
+    .quotebox p{
+        width: 200px;
+        font-size: 1.5rem;
+    }
+    .quotebox span{
+        text-align: center;
+        font-size: 1rem;
+    }
+    .quotebox blockquote{
+        font-size: 1rem;
+    }
+}
